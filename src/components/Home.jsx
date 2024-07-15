@@ -6,7 +6,7 @@ import Modal from './Modal';
 const Home = () => {
 
     const [fotosFrontEnd, setFotosFrontEnd] = useState([]);
-    const [visibleModal, setModalVisibility] = useState(false);
+    const [visibleModal, setModalVisibility] = useState(true);
 
     useEffect(
         () => {

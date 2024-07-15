@@ -9,9 +9,16 @@ const SectionsStyled = styled.section`
     padding: 20px;
 `;
 
+
 const Sections = (fotos, {setModalVisibility}) => {
+
+    const handleChange = () => {
+        console.log("test");
+      };
+
+      
     return <SectionsStyled>
-        <Section color={"#6BD1FF"} text={"FRONT END"} fotos={fotos} categoria={1} onClick={ () => setModalVisibility(true) }></Section>
+        <Section color={"#6BD1FF"} text={"FRONT END"} fotos={fotos} categoria={1} ></Section>
         <Section color={"#00C86F"} text={"BACK END"} fotos={fotos} categoria={2} onClick={ () => setModalVisibility(true) }></Section>
         <Section color={"#FFBA05"} text={"INOVACIÓN Y GSTIÓN"} fotos={fotos} categoria={3} onClick={ () => setModalVisibility(true) }></Section>
     </SectionsStyled>

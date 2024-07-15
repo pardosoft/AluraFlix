@@ -27,6 +27,11 @@ const CardStyled = styled.div`
 `;
 
 const SectionCard = ({color, src, fotos, categoria, setModalVisibility}) => {
+
+    const test = () => {
+        alert("efdf");
+    }
+
     return (<>{
         fotos.fotos.filter( foto => foto.categoria == categoria)
             .map( foto => (
@@ -34,7 +39,7 @@ const SectionCard = ({color, src, fotos, categoria, setModalVisibility}) => {
                     <div><img src={foto.imagen} className="img-thumb" /></div>
                     <div className="card-button-container">
                         <CardButton text={"BORRAR"} icon={"public/borrar.png"} />
-                        <CardButton text={"EDITAR"} icon={"public/editar.png"} onClick={ () => setModalVisibility(true) } />
+                        <CardButton text={"EDITAR"} icon={"public/editar.png"} onClick={ () => test() }/>
                     </div>
                 </CardStyled>  
             ))
