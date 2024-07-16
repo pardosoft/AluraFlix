@@ -6,9 +6,9 @@ const SectionStyled = styled.div`
     flex-direction: row;
 `;
 
-const Section = ({color, text, fotos, categoria, setModalVisibility}) => {
+const Section = ({color, text, fotos, categoria, onClickModal}) => {
     return <SectionStyled>
-        <SectionContainer color={color} text={text} fotos={fotos} categoria={categoria} setModalVisibility={setModalVisibility}></SectionContainer>
+        <SectionContainer color={color} text={text} fotos={fotos} categoria={categoria} onClickModal={onClickModal}></SectionContainer>
     </SectionStyled>
 }
 

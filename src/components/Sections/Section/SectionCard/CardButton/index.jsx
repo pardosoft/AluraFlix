@@ -18,8 +18,8 @@ const CardButtonStyled = styled.button`
     }
 `;
 
-const CardButton = ({text, icon}) => {
-    return <CardButtonStyled>
+const CardButton = ({text, icon, onClickModal}) => {
+    return <CardButtonStyled onClick={ () => onClickModal(true) }>
         <img className="icon" src={icon}></img>
         {text}
     </CardButtonStyled>

@@ -18,12 +18,12 @@ const SectionContainerStyled = styled.div`
 
 
 
-const SectionContainer = ({color, text, fotos, categoria, setModalVisibility}) => {
+const SectionContainer = ({color, text, fotos, categoria, onClickModal}) => {
     
     return <SectionContainerStyled>
         <SectionHeader color={color} text={text} />
         <div className="cardContainer">
-            <SectionCard color={color} fotos={fotos} categoria={categoria} setModalVisibility={setModalVisibility}></SectionCard>
+            <SectionCard color={color} fotos={fotos} categoria={categoria} onClickModal={onClickModal}></SectionCard>
         </div>
         
     </SectionContainerStyled>

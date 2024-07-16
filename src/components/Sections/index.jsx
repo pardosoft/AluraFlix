@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Section from "./Section";
+import CardButton from "./Section/SectionCard/CardButton";
 
 const SectionsStyled = styled.section`
     display: flex;
@@ -10,17 +11,13 @@ const SectionsStyled = styled.section`
 `;
 
 
-const Sections = (fotos, {setModalVisibility}) => {
+const Sections = (fotos, onClickModal) => {
 
-    const handleChange = () => {
-        console.log("test");
-      };
-
-      
+      console.log(fotos.onClickModal);
     return <SectionsStyled>
-        <Section color={"#6BD1FF"} text={"FRONT END"} fotos={fotos} categoria={1} ></Section>
-        <Section color={"#00C86F"} text={"BACK END"} fotos={fotos} categoria={2} onClick={ () => setModalVisibility(true) }></Section>
-        <Section color={"#FFBA05"} text={"INOVACIÓN Y GSTIÓN"} fotos={fotos} categoria={3} onClick={ () => setModalVisibility(true) }></Section>
+        <Section color={"#6BD1FF"} text={"FRONT END"} fotos={fotos} categoria={1} onClickModal={fotos.onClickModal}></Section>
+        <Section color={"#00C86F"} text={"BACK END"} fotos={fotos} categoria={2} onClickModal={fotos.onClickModal}></Section>
+        <Section color={"#FFBA05"} text={"INOVACIÓN Y GSTIÓN"} fotos={fotos} categoria={3} onClickModal={fotos.onClickModal}></Section>
     </SectionsStyled>
 }
 

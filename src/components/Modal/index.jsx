@@ -92,7 +92,7 @@ const ModalStyled = styled.dialog`
     }
 `;
 
-const Modal = ({visibleModal}) => {
+const Modal = ({visibleModal, onClickModal}) => {
     return <ModalStyled open={visibleModal}>
             <h1 className="h1-modal">EDITAR CARD:</h1>
             <form method="dialog">
@@ -123,8 +123,8 @@ const Modal = ({visibleModal}) => {
                     </div>
                 </div>
                 <div className="div-modal-buttons">
-                    <button className="button-guardar">Guardar</button>
-                    <button className="button-limpiar">Limpiar</button>
+                    <button className="button-guardar" onClick={() => onClickModal(false)}>Guardar</button>
+                    <button className="button-limpiar" onClick={() => onClickModal(false)}>Limpiar</button>
                 </div>
                 
             </form>

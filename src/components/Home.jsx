@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import Banner from './Banner'
 import Sections from './Sections'
 import Modal from './Modal';
+import CardButton from './Sections/Section/SectionCard/CardButton';
 
 const Home = () => {
 
     const [fotosFrontEnd, setFotosFrontEnd] = useState([]);
-    const [visibleModal, setModalVisibility] = useState(true);
+    const [visibleModal, setModalVisibility] = useState(false);
 
     useEffect(
         () => {
@@ -23,8 +24,8 @@ const Home = () => {
 
     return <>
         <Banner />
-        <Sections fotos={fotosFrontEnd} setModalVisibility={visible => setModalVisibility(visible)} />
-        <Modal visibleModal={visibleModal} />
+        <Sections fotos={fotosFrontEnd} onClickModal={visible => { setModalVisibility(visible); console.log(visible); console.log("visibleModal: " + visibleModal) }} />
+        <Modal visibleModal={visibleModal} onClickModal={visible => setModalVisibility(visible)} />
     </>
 }
 

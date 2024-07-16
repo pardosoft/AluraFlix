@@ -26,7 +26,7 @@ const CardStyled = styled.div`
     
 `;
 
-const SectionCard = ({color, src, fotos, categoria, setModalVisibility}) => {
+const SectionCard = ({color, src, fotos, categoria, onClickModal}) => {
 
     const test = () => {
         alert("efdf");
@@ -39,7 +39,7 @@ const SectionCard = ({color, src, fotos, categoria, setModalVisibility}) => {
                     <div><img src={foto.imagen} className="img-thumb" /></div>
                     <div className="card-button-container">
                         <CardButton text={"BORRAR"} icon={"public/borrar.png"} />
-                        <CardButton text={"EDITAR"} icon={"public/editar.png"} onClick={ () => test() }/>
+                        <CardButton text={"EDITAR"} icon={"public/editar.png"} onClickModal={onClickModal} />
                     </div>
                 </CardStyled>  
             ))
