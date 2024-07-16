@@ -3,6 +3,7 @@ import FormCampoSelect from "./FormCampoSelect";
 import FormCampoTextarea from "./FormCampoTextarea";
 import FormCampoTexto from "./FormCampoTexto";
 import BotonHeader from "../../Header/BotonHeader";
+import { useState } from "react";
 
 const FormContainerStyled = styled.form`
     display: flex;
@@ -28,22 +29,66 @@ const FormContainerStyled = styled.form`
 `;
 
 const FormContainer = () => {
-    return <FormContainerStyled>
+
+    const [titulo, actualizarTitulo] = useState("");
+    const [imagen, actualizarImagen] = useState("");
+    const [video, actualizarVideo] = useState("");
+    const [categoria, actualizarCategoria] = useState("1");
+    const [descripcion, actualizarDescripcion] = useState("");
+
+    const saveCard = (datosAEnviar) => {
+        fetch('http://localhost:3000/fotos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: Math.abs(new Date("2024-07-15") - Date.now()),
+                titulo: datosAEnviar.titulo,
+                imagen: datosAEnviar.imagen,
+                video: datosAEnviar.video,
+                categoria: datosAEnviar.categoria,
+                descripcion: datosAEnviar.descripcion
+            }),
+        })
+        .then((res) => res.json())
+        .then((result) => {
+            alert("Guardado con éxito");
+        })
+        .catch((err) => console.log(err))
+        }
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        let datosAEnviar = {
+            titulo: titulo,
+            imagen: imagen,
+            video: video,
+            categoria: categoria,
+            descripcion: descripcion
+        }
+
+        console.log(datosAEnviar);
+        saveCard(datosAEnviar);
+    }
+    
+    return <FormContainerStyled onSubmit={onSubmitHandler}>
         <h2>Crear Tarjeta</h2>
         <div className="div-container-row">
-            <FormCampoTexto text={"Título"} placeholder={"Ingrese el título"} />
-            <FormCampoSelect text={"Categoría"} />
+            <FormCampoTexto text={"Título"} placeholder={"Ingrese el título"} value={titulo} actualizarValor={actualizarTitulo} />
+            <FormCampoSelect text={"Categoría"} value={categoria} actualizarValor={actualizarCategoria} />
         </div>
         <div className="div-container-row">
-            <FormCampoTexto text={"Imagen"} placeholder={"Ingrese el enlace de la imagen"} />
-            <FormCampoTexto text={"Video"} placeholder={"Ingrese el enlace del video"} />
+            <FormCampoTexto text={"Imagen"} placeholder={"Ingrese el enlace de la imagen"} value={imagen} actualizarValor={actualizarImagen} />
+            <FormCampoTexto text={"Video"} placeholder={"Ingrese el enlace del video"} value={video} actualizarValor={actualizarVideo} />
         </div>
         <div className="div-container-row">
-            <FormCampoTextarea text={"Descripción"} />
+            <FormCampoTextarea text={"Descripción"} value={descripcion} actualizarValor={actualizarDescripcion} />
         </div>
         <div>
-            <BotonHeader text={"GUARDAR"} seleccionado={true}/>
-            <BotonHeader text={"LIMPIAR"} seleccionado={false}/>
+            <BotonHeader text={"GUARDAR"} seleccionado={true} />
+            <BotonHeader text={"LIMPIAR"} seleccionado={false} />
         </div>
     </FormContainerStyled>
 }

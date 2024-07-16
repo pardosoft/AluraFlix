@@ -26,10 +26,14 @@ const FromCampoTextareaStyled = styled.div`
     }
 `;
 
-const FormCampoTextarea = ({text}) => {
+const FormCampoTextarea = ({text, value, actualizarValor}) => {
+
+    const onChangeHandler = (e) => {
+        actualizarValor(e.target.value);
+    }
     return <FromCampoTextareaStyled>
         <label>{text}</label>
-        <textarea></textarea>
+        <textarea onChange={onChangeHandler} value={value}></textarea>
     </FromCampoTextareaStyled>
 }
 

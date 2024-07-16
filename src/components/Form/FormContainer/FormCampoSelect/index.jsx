@@ -32,12 +32,17 @@ const lt_categorias = [
     {"key": 3, "value": "Inovación y Gestión" }
 ];
 
-const FormCampoSelect = ({text}) => {
+const FormCampoSelect = ({text, value, actualizarValor}) => {
+
+    const onChangeHandler = (e) => {
+        actualizarValor(e.target.value);
+    }
+    
     return <FormCampoSelectStyled>
         <label>{text}</label>
-        <select>
+        <select onChange={onChangeHandler} value={value}>
             {
-                lt_categorias.map((categoria, index) => <option key={categoria.key}>{categoria.value}</option>)
+                lt_categorias.map((categoria, index) => <option key={categoria.key} value={categoria.key}>{categoria.value}</option>)
             }
         </select>
     </FormCampoSelectStyled>

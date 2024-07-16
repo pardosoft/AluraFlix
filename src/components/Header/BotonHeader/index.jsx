@@ -16,8 +16,8 @@ const BotonHeaderStyled = styled.button`
     cursor: pointer;
 `;
 
-const BotonHeader = ({text, seleccionado = false}) => {
-    return <BotonHeaderStyled $seleccionado = {seleccionado}>{text}</BotonHeaderStyled>;
+const BotonHeader = ({text, seleccionado = false, handler}) => {
+    return <BotonHeaderStyled $seleccionado = {seleccionado} onClick={handler}>{text}</BotonHeaderStyled>;
 }
 
 export default BotonHeader;

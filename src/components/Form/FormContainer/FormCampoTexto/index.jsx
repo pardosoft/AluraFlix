@@ -26,10 +26,17 @@ const FormCampoTextoStyled = styled.div`
     }
 `;
 
-const FormCampoTexto = ({text, placeholder}) => {
+const FormCampoTexto = ({text, placeholder, actualizarValor}) => {
+
+    //const [valor, actualizarValor] = useState("");
+
+    const onChangeHandler = (e) => {
+        actualizarValor(e.target.value);
+    }
+
     return <FormCampoTextoStyled>
         <label>{text}</label>
-        <input type="text" placeholder={placeholder}/>
+        <input type="text" placeholder={placeholder} onChange={onChangeHandler}/>
     </FormCampoTextoStyled>
 }
 
